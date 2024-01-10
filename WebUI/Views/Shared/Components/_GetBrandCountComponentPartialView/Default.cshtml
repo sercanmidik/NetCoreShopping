@@ -1,0 +1,10 @@
+﻿
+@model Task<IEnumerable<ResultBrandCountListDto>>
+
+    @foreach (var item in await Model)
+{
+    <li class="filter-list">
+        <input class="pixel-radio" type="radio">
+        <label for="apple">@item.BrandName<span>(@item.BrandCount)</span></label>
+    </li>
+}

@@ -1,0 +1,75 @@
+﻿@model Task<IEnumerable<ResultCategoryDto>>
+@{
+    int resultCount = 0;
+    int count = 0;
+    int count2 = 0;
+    var result = Model.Result;
+    if (result != null)
+    {
+        resultCount = result.Count();
+    }
+}
+<section class="category-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-12">
+                <div class="row">
+                    @foreach (var item in await Model)
+                    {
+                        count++;
+                        if(count==1 || count==4)
+                        {
+                            <div class="col-lg-8 col-md-8">
+                                <div class="single-deal">
+                                    <div class="overlay"></div>
+                                    <img class="img-fluid w-100" src="~/master/img/category/@item.CategoryImage" alt="">
+                                    <a href="~/master/img/category/@item.CategoryImage" class="img-pop-up" target="_blank">
+                                        <div class="deal-details">
+                                            <h6 class="deal-title">@item.CategoryName</h6>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                        }
+                        if(count==2 || count==3)
+                        {
+                            <div class="col-lg-4 col-md-4">
+                                <div class="single-deal">
+                                    <div class="overlay"></div>
+                                    <img class="img-fluid w-100" src="~/master/img/category/@item.CategoryImage" alt="">
+                                    <a href="~/master/img/category/@item.CategoryImage" class="img-pop-up" target="_blank">
+                                        <div class="deal-details">
+                                            <h6 class="deal-title">@item.CategoryName</h6>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            @foreach (var item in await Model)
+            {
+                count2++;
+                if(count2==resultCount)
+                {
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-deal">
+                            <div class="overlay"></div>
+                            <img class="img-fluid w-100" src="~/master/img/category/@item.CategoryImage" alt="">
+                            <a href="img/category/c1.jpg" class="img-pop-up" target="_blank">
+                                <div class="deal-details">
+                                    <h6 class="deal-title">@item.CategoryName</h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+            
+        </div>
+    </div>
+</section>
+
+

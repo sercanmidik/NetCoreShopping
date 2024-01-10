@@ -1,0 +1,85 @@
+﻿@model ConfirmAddressAndOrderAndOrderDetail
+
+<section class="order_details section_gap">
+	<div class="container">
+		<h3 class="title_confirmation">Siparişiniz İçin Teşekkürler</h3>
+		<div class="row order_d_inner">
+			<div class="col-lg-4">
+				<div class="details_item">
+					<h4>Sipariş Bilgileriniz</h4>
+					<ul class="list">
+						<li><a href="#"><span>Sipariş No:</span> : @Model?.Order?.OrderId</a></li>
+						<li><a href="#"><span>Date</span> : Los Angeles</a></li>
+						<li><a href="#"><span>Total</span> : @Model?.Order?.TotalOrder</a></li>
+					
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="details_item">
+					<h4>Billing Address</h4>
+					<ul class="list">
+						<li><a href="#"><span>Street</span> : @Model?.Address?.LineOne</a></li>
+						<li><a href="#"><span>City</span> : @Model?.Address?.City</a></li>
+						<li><a href="#"><span>Country</span> : @Model?.Address?.Country</a></li>
+						<li><a href="#"><span>Postcode </span> : @Model?.Address?.PostCode</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="details_item">
+					<h4>Shipping Address</h4>
+					<ul class="list">
+						<li><a href="#"><span>Street</span> : @Model?.Address?.LineOne</a></li>
+						<li><a href="#"><span>City</span> : @Model?.Address?.LineTwo</a></li>
+						<li><a href="#"><span>Country</span> : @Model?.Address?.OrderDetail</a></li>
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="order_details_table">
+			<h2>Sipariş Detayı</h2>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Ürün</th>
+							<th scope="col">Adet</th>
+							<th scope="col">Toplam</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model.OrderDetails)
+						{
+							<tr>
+								<td>
+									<p>@item.ProductName</p>
+								</td>
+								<td>
+									<h5>x @item.Quantity</h5>
+								</td>
+								<td>
+									<p>@item.TotalPrice</p>
+								</td>
+							</tr>
+						}
+						
+						
+						<tr>
+							<td>
+								<h4>Genel Toplam</h4>
+							</td>
+							<td>
+								<h5></h5>
+							</td>
+							<td>
+								<p>@Model.Order.TotalOrder</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>

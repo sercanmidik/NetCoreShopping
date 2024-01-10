@@ -1,0 +1,32 @@
+﻿@model LoginDto
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/DefaultLayout/_Layoult.cshtml";
+}
+
+<section class="login_box_area section_gap">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="login_form_inner">
+					<h3>Giriş Yeri</h3>
+					<form class="row login_form" asp-action="Login" asp-controller="Account" method="post"  novalidate="novalidate">
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" asp-for="UserName" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="password" class="form-control" asp-for="Password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+						</div>
+				
+						<div class="col-md-12 form-group">
+							<button type="submit" class="primary-btn">Giriş Yap</button>
+						</div>
+					</form>
+					<a href="/Account/Register/">Üye Ol</a>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</section>
+

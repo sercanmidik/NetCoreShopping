@@ -1,0 +1,87 @@
+﻿@model CheckoutAddresAndOrderDetail
+@{
+    decimal total = 0;
+}
+
+<section class="checkout_area section_gap">
+    <div class="container">
+        <div class="billing_details">
+            <form method="post" asp-action="CreateAddress" asp-controller="Confirmation">
+                <div class="row">
+                    <div class="col-lg-8">
+
+                        <h3>Adres Bilgileri</h3>
+
+                        <div class="row contact_form">
+                            <input type="hidden" asp-for="Address.UserId" />
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" asp-for="Address.AppUser.Name" placeholder="Adınızı Giriniz">
+
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" asp-for="Address.AppUser.SurName" placeholder="Soyadınızı Giriniz">
+
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" asp-for="Address.CompanyName" placeholder="Şirket Adı giriniz">
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" asp-for="Address.PhoneNumber" placeholder="Telefon numarası giriniz">
+
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" asp-for="Address.AppUser.Email" placeholder="Mail Adresiniz">
+
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" asp-for="Address.LineOne">
+
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" asp-for="Address.LineTwo">
+
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" asp-for="Address.District">
+
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" asp-for="Address.City">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" asp-for="Address.PostCode" placeholder="Postcode/ZIP">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <textarea class="form-control" asp-for="Address.OrderDetail" rows="1" placeholder="Order Notes"></textarea>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="order_box">
+                            <h2>Sipariş Özeti</h2>
+                            <ul class="list">
+                                <li><a href="#">Ürün Adı <span>Toplam</span></a></li>
+                                @foreach (var item in Model.OrderDetails)
+                                {
+                                    total = total + item.TotalPrice;
+                                    <li><a href="#">@item.ProductName <span class="middle">x @item.Quantity</span> <span class="last">@item.TotalPrice</span></a></li>
+                                }
+
+                            </ul>
+
+                            <ul class="list list_2">
+                                <li><a href="#">Genel Toplam <span>@total</span></a></li>
+
+                            </ul>
+
+                            <button class="primary-btn" type="submit">Ödeme Yap</button>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

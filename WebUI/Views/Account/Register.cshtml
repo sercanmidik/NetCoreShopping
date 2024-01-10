@@ -1,0 +1,56 @@
+﻿@model CreateAccountDto
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/DefaultLayout/_Layoult.cshtml";
+}
+
+<section class="banner-area organic-breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+			<div class="col-first">
+				<h1>Üyelik İşlemleri</h1>
+				<nav class="d-flex align-items-center">
+					<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+					<a href="category.html">Login/Register</a>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Banner Area -->
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="login_form_inner">
+					<h3>Üyelik İşlemleri</h3>
+					<form class="row login_form" method="post"  novalidate="novalidate" asp-action="CreateRegister" asp-controller="Account">
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" asp-for="UserName"  placeholder="Kullanıcı Adı Giriniz" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" asp-for="Name" placeholder="Adınızı Giriniz" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" asp-for="SurName" placeholder="SoyAdınızı Giriniz" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="email" class="form-control" asp-for="Email" placeholder="Mail Adresinizi Giriniz" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="password" class="form-control" asp-for="Password"  placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="password" class="form-control" asp-for="ConfirmPassword" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+						</div>
+						<div class="col-md-12 form-group">
+							<button type="submit" class="primary-btn">Üye Ol</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+

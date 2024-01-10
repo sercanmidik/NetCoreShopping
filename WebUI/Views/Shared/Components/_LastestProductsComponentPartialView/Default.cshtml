@@ -1,0 +1,112 @@
+﻿@model Task<IEnumerable<ResultProductDto>>
+@{
+	int count = 0;
+	int count2 = 0;
+}
+<section class="owl-carousel active-product-area section_gap">
+	<!-- single product slide -->
+	<div class="single-product-slider">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-6 text-center">
+					<div class="section-title">
+						<h1>İndirimli Ürünler</h1>
+						<p>
+							İndirimli Ürün Listesi
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!-- single product -->
+				@foreach (var item in await Model)
+				{
+					count++;
+					if(count<9)
+					{
+						<div class="col-lg-3 col-md-6">
+							<div class="single-product">
+								<img class="img-fluid" src="~/master/img/product/@item.ProductUrl" alt="">
+								<div class="product-details">
+									<h6>
+										@item.BrandName @item.CategoryName @item.Title
+									</h6>
+									<div class="price">
+										<h6>@item.TotalPrice</h6>
+										<h6 class="l-through">@item.NotDiscountPrice</h6>
+									</div>
+									<div class="prd-bottom">
+
+										<a href="" class="social-info">
+											<span class="ti-bag"></span>
+											<p class="hover-text">Ekle</p>
+										</a>
+										<a href="" class="social-info">
+											<span class="lnr lnr-heart"></span>
+											<p class="hover-text">Favori</p>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					}
+					
+				}
+				<!-- single product -->
+			</div>
+		</div>
+	</div>
+	<!-- single product slide -->
+	<div class="single-product-slider">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-6 text-center">
+					<div class="section-title">
+						<h1>Coming Products</h1>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+							dolore
+							magna aliqua.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!-- single product -->
+				@foreach (var item in await Model)
+				{
+					count2++;
+					if (count2 > 8)
+					{
+						<div class="col-lg-3 col-md-6">
+							<div class="single-product">
+								<img class="img-fluid" src="~/master/img/product/@item.ProductUrl" alt="">
+								<div class="product-details">
+									<h6>
+										@item.BrandName @item.CategoryName @item.Title
+									</h6>
+									<div class="price">
+										<h6>@item.TotalPrice</h6>
+										<h6 class="l-through">@item.NotDiscountPrice</h6>
+									</div>
+									<div class="prd-bottom">
+
+										<a href="" class="social-info">
+											<span class="ti-bag"></span>
+											<p class="hover-text">Ekle</p>
+										</a>
+										<a href="" class="social-info">
+											<span class="lnr lnr-heart"></span>
+											<p class="hover-text">Favori</p>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					}
+
+				}
+			</div>
+		</div>
+	</div>
+</section>

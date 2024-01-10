@@ -1,0 +1,22 @@
+﻿@model Task<IEnumerable<ResultFeatureDto>>
+<section class="features-area section_gap">
+	<div class="container">
+		<div class="row features-inner">
+			<!-- single features -->
+			@foreach (var item in await Model)
+			{
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="single-features">
+						<div class="f-icon">
+							<img src="~/master/img/features/@item.FeatureImage" alt="">
+						</div>
+						<h6>@item.FeatureName</h6>
+						<p>@item.FeatureContent</p>
+					</div>
+				</div>
+			}
+			<!-- single features -->
+	
+		</div>
+	</div>
+</section>

@@ -1,0 +1,28 @@
+﻿@model FilterSortingPagination
+<form method="post" asp-action="FilterPagination" asp-controller="Shop" id="filterForm">
+
+
+<div class="filter-bar d-flex flex-wrap align-items-center">
+	<div class="sorting">
+		<select asp-for="ShortId">
+			<option value="1">Marka A-Z</option>
+			<option value="2">Marka Z-A</option>
+			<option value="3">Fiyat (Azalan)</option>
+			<option value="4">Fiyat (Artan)</option>
+		</select>
+	</div>
+	<div class="sorting mr-auto">
+			<select asp-for="Pagination" onchange="submitForm()">
+			<option value="1">Show 12</option>
+			<option value="2">Show 9</option>
+			<option value="3">Show 8</option>
+		</select>
+	</div>
+</div>
+</form>
+
+<script>
+	function submitForm() {
+		document.getElementById('filterForm').submit();
+	}
+</script>

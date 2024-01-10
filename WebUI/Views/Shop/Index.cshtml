@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+@await Html.PartialAsync("/Views/DefaultLayout/HeadPartial.cshtml")
+
+<body id="category">
+
+	@await Html.PartialAsync("/Views/DefaultLayout/HeaderPartial.cshtml")
+	<!-- Start Header Area -->
+	@await Component.InvokeAsync("_ShopBannerComponentPartialView")
+	<!-- End Header Area -->
+
+	<!-- Start Banner Area -
+	<!-- End Banner Area -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-3 col-lg-4 col-md-5">
+				<div class="sidebar-categories">
+					<div class="head">Kategoriler</div>
+					<ul class="main-categories">
+						<li class="main-nav-list">
+							@await Component.InvokeAsync("_GetCategoryCountComponentPartialView")
+						</li>
+
+						
+					</ul>
+				</div>
+				<div class="sidebar-filter mt-50">
+					<div class="top-filter-head">Product Filters</div>
+					<div class="common-filter">
+						<div class="head">Brands</div>
+						<form action="#">
+							<ul>
+								
+								@await Component.InvokeAsync("_GetBrandCountComponentPartialView")
+							</ul>
+						</form>
+					</div>
+					
+					
+				</div>
+			</div>
+			<div class="col-xl-9 col-lg-8 col-md-7">
+				<!-- Start Filter Bar -->
+				<!-- End Filter Bar -->
+				<!-- Start Best Seller -->
+				@await Component.InvokeAsync("_ProductListSortingAndPaginationComponentView")
+			</div>
+		</div>
+	</div>
+
+	<!-- Start related-product Area -->
+	@await Component.InvokeAsync("_DealsOfTheWeekComponentPartialView")
+	<!-- End related-product Area -->
+
+	<!-- start footer Area -->
+	@await Html.PartialAsync("/Views/DefaultLayout/FooterPartial.cshtml")
+	<!-- End footer Area -->
+
+	<!-- Modal Quick Product View -->
+	@await Html.PartialAsync("/Views/DefaultLayout/ScriptPartial.cshtml")
+</body>
+
+</html>

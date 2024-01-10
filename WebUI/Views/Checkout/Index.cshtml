@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/DefaultLayout/_Layoult.cshtml";
+}
+
+@await Html.PartialAsync("/Views/Checkout/CheckoutPartial.cshtml")
+
+@await Component.InvokeAsync("_CheckoutComponentPartialView")
+
